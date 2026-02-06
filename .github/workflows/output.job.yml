@@ -1,0 +1,20 @@
+name: output-quota
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.step1.outputs.version }}
+    steps:
+      - name: Build Step
+        id: step1
+        run: echo "version=0.0.9" >> $GITHUB_OUTPUT
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy app
+        run: echo "this application version is ${{ needs.build.outputs.version }}"
