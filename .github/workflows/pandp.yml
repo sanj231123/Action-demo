@@ -1,0 +1,20 @@
+name: push and pull demo
+
+on:
+ push :
+  branches:
+  - main
+ pull_request:
+  types:
+  - opened
+  - synchronize
+  branches:
+   - main
+jobs:
+  push-pull:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build step
+      run: echo " the test pull and push " 
+
+  
