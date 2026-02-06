@@ -1,0 +1,24 @@
+name: inputs demo
+
+on:
+ workflow_dispatch:
+  inputs:
+   environment:
+    discription: Chooes the environment to deploy
+    required: true
+    default: dev
+    type: choice
+    options:
+     - main
+     - devloper
+     - prod
+  artifact_tag: 
+   discription: Choose the git tag tpdeploy
+   required: true		
+  
+jobs:
+  inputs-demo:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Deploy the app
+       run: echo "Deployment the ${{ inputs.artifact_tag }} app application to ${{ inputs.environment }}
