@@ -1,0 +1,16 @@
+name: outputs demo
+
+on: push
+
+jobs:
+  outputs-demo:
+  
+   runs-on: ubuntu-latest
+   
+   steps:  
+   - name: one step
+     id: step1          
+     run: echo " version=0.0.3 " >> GITHUB_OUTPUT
+    
+   - name: two step
+     run: echo "the application version is ${{ steps.step1.outputs.version }}"
