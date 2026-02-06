@@ -10,6 +10,8 @@ jobs:
        run: |
         echo "This the triggeris ${{ github.actor }}"
         echo "This is the repository ${{ github.repository }}"
+        echo " the branch is ${{ github.ref_name }}"
+        echo " $GITHUB_SHA"
 
      - name: print all variable under github
        run: echo "${{ tojson(github) }}"
