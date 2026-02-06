@@ -10,3 +10,4 @@ jobs:
        run: |
         echo "This the triggeris ${{ github.actor }}"
         echo "This is the repository ${{ github.repository }}"
+        echo "this is the commit id $GITHUB-SHA"
