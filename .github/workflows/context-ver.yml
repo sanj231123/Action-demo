@@ -1,0 +1,12 @@
+name: context variable demo
+
+on: push
+
+jobs:
+  context-demo:
+    runs-on: ubuntu-latest
+    steps:
+     - name: build the step
+       run: |
+        echo "This the triggeris ${{ github.actor }}"
+        echo "This is the repository ${{ github.repository }}"
