@@ -1,0 +1,29 @@
+name: if condition
+
+on:
+ push:
+  branches:
+   - main
+ pull_request:
+  types:
+  - opened
+  - synchronize
+  
+jobs:
+  build:
+   
+   runs-on: ubuntu-latest
+   if: ${{ github.event_name == 'pull_request' }}
+   
+   steps:
+   - name: Build step
+     run: echo " running the first pull request"
+     
+  deploy:
+  
+   runs-on: ubuntu-latest
+   if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+      
+   steps:
+   - name: run the deplot step
+     run: echo " after pull request run push code" 
